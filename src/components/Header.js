@@ -5,7 +5,7 @@ import { MdOutlineKeyboardVoice, MdSettings } from "react-icons/md";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand navbar-dark">
+    <nav className="navbar navbar-expand navbar-dark text-pink fixed-top z-2">
       <div className="container">
         <NavLink to="/" className="navbar-brand fs-2">
           <BsChevronLeft />
