@@ -19,14 +19,10 @@ const coinsSlice = createSlice({
   name: "coins",
   initialState,
   reducers: {
-    showDetails: (state, action) => {
-      const newState = state.coins.filter((item) => item.id === action.payload);
-
-      return {
-        ...state,
-        coins: newState,
-      };
-    },
+    showDetails: (state, action) => ({
+      ...state,
+      coins: state.coins.filter((item) => item.id === action.payload),
+    }),
   },
   extraReducers: (builder) => {
     builder
@@ -50,4 +46,6 @@ const coinsSlice = createSlice({
 export const selectCoins = (state) => state.coins.coins;
 export const selectStatus = (state) => state.coins.status;
 export const selectError = (state) => state.coins.error;
+
+export const { showDetails } = coinsSlice.actions;
 export default coinsSlice.reducer;

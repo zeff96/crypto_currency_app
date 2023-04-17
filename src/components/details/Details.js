@@ -7,6 +7,7 @@ import {
 } from "../../redux/coins/coinsSlice";
 import { useEffect } from "react";
 import Detail from "./Detail";
+import { useParams } from "react-router-dom";
 
 export default function Details() {
   const dispatch = useAppDispatch();
@@ -19,17 +20,15 @@ export default function Details() {
     dispatch(getCoinsAsyns());
   }, [dispatch]);
 
-  const listsDetails = coins.map((item) => (
-    <div key={item.id}>
-      <Detail item={item} />
-    </div>
-  ));
+  const { id } = useParams();
+
+  const coin = coins.find((item) => item.id === id);
 
   return (
-    <div>
+    <div className="container">
       {status === "Loading" && <h2>Loading</h2>}
       {error && <h2>{error.message}</h2>}
-      {coins && <div>{listsDetails}</div>}
+      {coin && <Detail item={coin} key={coin.id} />}
     </div>
   );
 }
