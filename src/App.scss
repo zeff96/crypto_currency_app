@@ -1,6 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
-body,
+body {
+  background-color: #d63384;
+  font-family: "Gill Sans", sans-serif;
+}
+
 .navbar,
 .card {
   background-color: #d63384;

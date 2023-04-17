@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import getAllCoins from "../../components/api/getData";
+import getAllCoins from "../../api/getData";
 
 const initialState = {
   coins: [],
@@ -18,6 +18,12 @@ export const getCoinsAsyns = createAsyncThunk(
 const coinsSlice = createSlice({
   name: "coins",
   initialState,
+  reducers: {
+    showDetails: (state, action) => ({
+      ...state,
+      coins: state.coins.filter((item) => item.id === action.payload),
+    }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCoinsAsyns.pending, (state) => ({
@@ -37,4 +43,9 @@ const coinsSlice = createSlice({
   },
 });
 
+export const selectCoins = (state) => state.coins.coins;
+export const selectStatus = (state) => state.coins.status;
+export const selectError = (state) => state.coins.error;
+
+export const { showDetails } = coinsSlice.actions;
 export default coinsSlice.reducer;
