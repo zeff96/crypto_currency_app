@@ -6,5 +6,9 @@ export default function Currencies() {
     <Currency key={coin.id} coin={coin} />
   ));
 
-  return <div className="container my-5 row">{listCategories}</div>;
+  return (
+    <div className="container my-5 ">
+      <div className="row row-cols-4">{listCategories}</div>
+    </div>
+  );
 }
