@@ -21,31 +21,31 @@ export default function Detail({ item }) {
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>Supply</span>
-          <span>{item.supply}</span>
+          <span>{parseFloat(item.supply).toFixed(2)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>MaxSupply</span>
-          <span>{item.maxSupply}</span>
+          <span>{parseFloat(item.maxSupply).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>MarketCapUsd</span>
-          <span>{item.marketCapUsd}</span>
+          <span>{parseFloat(item.marketCapUsd).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>VolumeUsd24Hr</span>
-          <span>{item.volumeUsd24Hr}</span>
+          <span>{parseFloat(item.volumeUsd24Hr).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>PriceUsd</span>
-          <span>{item.priceUsd}</span>
+          <span>{parseFloat(item.priceUsd).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>ChangePercent24Hr</span>
-          <span>{item.changePercent24Hr}</span>
+          <span>{parseFloat(item.changePercent24Hr).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>Vwap24Hr</span>
-          <span>{item.vwap24Hr}</span>
+          <span>{parseFloat(item.vwap24Hr).toFixed(4)}</span>
         </li>
         <li className="list-group-item d-flex justify-content-between">
           <span>Explorer</span>
