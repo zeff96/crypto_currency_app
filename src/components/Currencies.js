@@ -8,7 +8,7 @@ export default function Currencies() {
 
   return (
     <div className="container my-5 ">
-      <div className="row row-cols-4">{listCategories}</div>
+      <div className="row">{listCategories}</div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { BsArrowRightCircle } from "react-icons/bs";
 
 export default function Currency({ coin }) {
   return (
-    <div className="card p-3 mb-3 ms-3 col-sm-5 col-lg-3">
+    <div className="card p-3 mb-3">
       <div className="d-flex">
         <div className="col">
           <img className="img-fluid" src={coin.img} alt={coin.name} />
