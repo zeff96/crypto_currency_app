@@ -6,9 +6,9 @@ import { showDetails } from "../../redux/coins/coinsSlice";
 export default function Currency({ coin }) {
   const dispatch = useAppDispatch();
   return (
-    <div className="card p-2 mb-3 col-12 col-sm-4 ">
-      <div className="d-flex">
-        <div className="col">
+    <div className="card p-2 mb-3 col-12 col-sm-3">
+      <div className="d-flex" style={{ height: "10rem" }}>
+        <div className="col col-sm-4">
           <img className="img-fluid" src={coin.img} alt={coin.name} />
         </div>
         <div className="col d-flex flex-column align-items-end justify-content-between">
