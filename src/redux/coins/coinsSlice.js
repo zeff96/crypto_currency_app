@@ -11,7 +11,7 @@ export const getCoinsAsyns = createAsyncThunk(
   "coins/getCoinsAsyns",
   async () => {
     const coins = await getAllCoins();
-    return coins;
+    return coins.splice(0, 16);
   }
 );
 
