@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import coinReducer from "./coins/coinsSlice";
 
 export default configureStore({
-  reducer: {},
+  reducer: {
+    coins: coinReducer,
+  },
 });
