@@ -1,19 +1,19 @@
 import bitcoin from "../asset/bitcoin.svg";
-import binancecoin from "../asset/binance-coin-seeklogo.com.svg";
-import binanceusd from "../asset/binance-usd-busd-seeklogo.com.svg";
-import cardano from "../asset/cardano-ada-seeklogo.com.svg";
-import dogecoin from "../asset/dogecoin-seeklogo.com.svg";
-import ethereum from "../asset/ethereum-seeklogo.com.svg";
-import litecoin from "../asset/litecoin-seeklogo.com.svg";
-import polkadot from "../asset/polkadot-dot-seeklogo.com.svg";
-import polygon from "../asset/polygon-studios-seeklogo.com.svg";
-import ripple from "../asset/ripple-xrp-seeklogo.com.svg";
-import shiba from "../asset/shiba-inu-shib-seeklogo.com.svg";
-import solana from "../asset/solana-sol-seeklogo.com.svg";
-import tether from "../asset/tether-seeklogo.com.svg";
-import tron from "../asset/tron-seeklogo.com.svg";
-import usd from "../asset/usd-coin-usdc-seeklogo.com.svg";
-import avalanche from "../asset/colorado-avalanche.svg";
+import binancecoin from "../asset/binance.svg";
+import binanceusd from "../asset/binanceusd.svg";
+import cardano from "../asset/cardano.svg";
+import dogecoin from "../asset/dogecoin.svg";
+import ethereum from "../asset/ethereum.svg";
+import litecoin from "../asset/litecoin.svg";
+import polkadot from "../asset/polkadot.svg";
+import polygon from "../asset/polygon.svg";
+import ripple from "../asset/ripple.svg";
+import shiba from "../asset/shiba.svg";
+import solana from "../asset/solana.svg";
+import tether from "../asset/tether.svg";
+import tron from "../asset/tron.svg";
+import usd from "../asset/usd.svg";
+import avalanche from "../asset/colorado.svg";
 
 export const allCoins = [
   { id: "bitcoin", name: "Bitcoin", img: bitcoin },

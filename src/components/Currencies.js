@@ -3,8 +3,8 @@ import Currency from "./Currency";
 
 export default function Currencies() {
   const listCategories = allCoins.map((coin) => (
-    <div key={coin.id}>
-      <Currency coin={coin} />
-    </div>
+    <Currency key={coin.id} coin={coin} />
   ));
+
+  return <div className="container pb-3">{listCategories}</div>;
 }
