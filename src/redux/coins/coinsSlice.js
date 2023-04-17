@@ -18,6 +18,16 @@ export const getCoinsAsyns = createAsyncThunk(
 const coinsSlice = createSlice({
   name: "coins",
   initialState,
+  reducers: {
+    showDetails: (state, action) => {
+      const newState = state.coins.filter((item) => item.id === action.payload);
+
+      return {
+        ...state,
+        coins: newState,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCoinsAsyns.pending, (state) => ({
