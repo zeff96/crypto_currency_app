@@ -37,4 +37,7 @@ const coinsSlice = createSlice({
   },
 });
 
+export const selectCoins = (state) => state.coins.coins;
+export const selectStatus = (state) => state.coins.status;
+export const selectError = (state) => state.coins.error;
 export default coinsSlice.reducer;
