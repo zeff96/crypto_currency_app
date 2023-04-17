@@ -1,0 +1,52 @@
+export default function Detail({ item }) {
+  return (
+    <ul>
+      <li>
+        <span>Rank</span>
+        <span>{item.rank}</span>
+      </li>
+      <li>
+        <span>Symbol</span>
+        <span>{item.symbol}</span>
+      </li>
+      <li>
+        <span>Name</span>
+        <span>{item.name}</span>
+      </li>
+      <li>
+        <span>Supply</span>
+        <span>{item.supply}</span>
+      </li>
+      <li>
+        <span>MaxSupply</span>
+        <span>{item.maxSupply}</span>
+      </li>
+      <li>
+        <span>MarketCapUsd</span>
+        <span>{item.marketCapUsd}</span>
+      </li>
+      <li>
+        <span>VolumeUsd24Hr</span>
+        <span>{item.volumeUsd24Hr}</span>
+      </li>
+      <li>
+        <span>PriceUsd</span>
+        <span>{item.priceUsd}</span>
+      </li>
+      <li>
+        <span>ChangePercent24Hr</span>
+        <span>{item.changePercent24Hr}</span>
+      </li>
+      <li>
+        <span>Vwap24Hr</span>
+        <span>{item.vwap24Hr}</span>
+      </li>
+      <li>
+        <span>Explorer</span>
+        <a href={item.explorer} target="_blank" rel="noopener noreferrer">
+          explorer
+        </a>
+      </li>
+    </ul>
+  );
+}

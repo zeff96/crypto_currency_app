@@ -1,4 +1,4 @@
-import { allCoins } from "../utilis/allCoins";
+import { allCoins } from "../../utilis/allCoins";
 import Currency from "./Currency";
 
 export default function Currencies() {

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import getAllCoins from "../../components/api/getData";
+import getAllCoins from "../../api/getData";
 
 const initialState = {
   coins: [],
