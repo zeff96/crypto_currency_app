@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: #d63384;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.navbar,
+.card {
+  background-color: #d63384;
+}
+
+.list-group-item {
+  background-color: #d63384;
+}
+
+.list-group-item:nth-child(even) {
+  background-color: #86184fab;
+}
