@@ -32,7 +32,7 @@ export default function Details() {
           <img className="img-fluid" src={bitcoin} alt={bitcoin} />
         </div>
         <h2 className="fs-1 fw-bolder">
-          Crypto <br /> Currency <br /> Ratings
+          Crypto <br /> Currency <br /> Metrics
         </h2>
       </div>
       {status === "Loading" && <h2>Loading</h2>}
