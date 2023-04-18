@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-import { BsChevronLeft } from "react-icons/bs";
-import { MdOutlineKeyboardVoice, MdSettings } from "react-icons/md";
+import { BsChevronLeft } from 'react-icons/bs';
+import { MdOutlineKeyboardVoice, MdSettings } from 'react-icons/md';
 
 export default function Header() {
   return (

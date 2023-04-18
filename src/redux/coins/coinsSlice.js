@@ -1,22 +1,22 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import getAllCoins from "../../api/getData";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import getAllCoins from '../../api/getData';
 
 const initialState = {
   coins: [],
-  status: "idle",
+  status: 'idle',
   error: null,
 };
 
 export const getCoinsAsyns = createAsyncThunk(
-  "coins/getCoinsAsyns",
+  'coins/getCoinsAsyns',
   async () => {
     const coins = await getAllCoins();
     return coins.splice(0, 16);
-  }
+  },
 );
 
 const coinsSlice = createSlice({
-  name: "coins",
+  name: 'coins',
   initialState,
   reducers: {
     showDetails: (state, action) => ({
@@ -28,16 +28,16 @@ const coinsSlice = createSlice({
     builder
       .addCase(getCoinsAsyns.pending, (state) => ({
         ...state,
-        status: "Loading",
+        status: 'Loading',
       }))
       .addCase(getCoinsAsyns.fulfilled, (state, action) => ({
         ...state,
         coins: action.payload,
-        status: "completed",
+        status: 'completed',
       }))
       .addCase(getCoinsAsyns.rejected, (state, action) => ({
         ...state,
-        status: "rejected",
+        status: 'rejected',
         error: action.error,
       }));
   },

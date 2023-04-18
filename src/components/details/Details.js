@@ -1,14 +1,14 @@
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
   getCoinsAsyns,
   selectCoins,
   selectStatus,
   selectError,
-} from "../../redux/coins/coinsSlice";
-import { useEffect } from "react";
-import Detail from "./Detail";
-import { useParams } from "react-router-dom";
-import bitcoin from "../../asset/bitcoin.svg";
+} from '../../redux/coins/coinsSlice';
+import Detail from './Detail';
+import bitcoin from '../../asset/bitcoin.svg';
 
 export default function Details() {
   const dispatch = useAppDispatch();
@@ -28,14 +28,22 @@ export default function Details() {
   return (
     <div className="container" data-testid="details">
       <div className="d-flex align-items-center">
-        <div style={{ maxWidth: "15rem" }}>
+        <div style={{ maxWidth: '15rem' }}>
           <img className="img-fluid" src={bitcoin} alt={bitcoin} />
         </div>
         <h2 className="fs-1 fw-bolder">
-          Crypto <br /> Currency <br /> Metrics
+          Crypto
+          {' '}
+          <br />
+          {' '}
+          Currency
+          {' '}
+          <br />
+          {' '}
+          Metrics
         </h2>
       </div>
-      {status === "Loading" && <h2>Loading</h2>}
+      {status === 'Loading' && <h2>Loading</h2>}
       {error && <h2>{error.message}</h2>}
       {coin && <Detail item={coin} key={coin.id} />}
     </div>

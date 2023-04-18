@@ -1,8 +1,8 @@
-import "./App.scss";
-import { Routes, Route } from "react-router-dom";
-import Header from "./components/navbar/Header";
-import Currencies from "./components/currencies/Currencies";
-import Details from "./components/details/Details";
+import './App.scss';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/navbar/Header';
+import Currencies from './components/currencies/Currencies';
+import Details from './components/details/Details';
 
 function App() {
   return (

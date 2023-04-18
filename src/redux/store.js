@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import coinReducer from "./coins/coinsSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import coinReducer from './coins/coinsSlice';
 
 const store = configureStore({
   reducer: {

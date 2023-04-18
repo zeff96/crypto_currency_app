@@ -1,4 +1,5 @@
-import { BsArrowRightCircle } from "react-icons/bs";
+import PropTypes from 'prop-types';
+import { BsArrowRightCircle } from 'react-icons/bs';
 
 export default function Detail({ item }) {
   return (
@@ -57,3 +58,19 @@ export default function Detail({ item }) {
     </div>
   );
 }
+
+Detail.propTypes = {
+  item: PropTypes.shape({
+    rank: PropTypes.string,
+    name: PropTypes.string,
+    symbol: PropTypes.string,
+    supply: PropTypes.string,
+    maxSupply: PropTypes.string,
+    marketCapUsd: PropTypes.string,
+    volumeUsd24Hr: PropTypes.string,
+    priceUsd: PropTypes.string,
+    changePercent24Hr: PropTypes.string,
+    vwap24Hr: PropTypes.string,
+    explorer: PropTypes.string,
+  }).isRequired,
+};
