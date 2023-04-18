@@ -26,7 +26,7 @@ export default function Details() {
   const coin = coins.find((item) => item.id === id);
 
   return (
-    <div className="container">
+    <div className="container" data-testid="details">
       <div className="d-flex align-items-center">
         <div style={{ maxWidth: "15rem" }}>
           <img className="img-fluid" src={bitcoin} alt={bitcoin} />
