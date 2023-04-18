@@ -8,7 +8,7 @@ export default function Currencies() {
   ));
 
   return (
-    <div className="container my-5 ">
+    <div className="container my-5" data-testid="currencies">
       <div className="d-flex align-items-center">
         <div style={{ maxWidth: "15rem" }}>
           <img className="img-fluid" src={bitcoin} alt={bitcoin} />
