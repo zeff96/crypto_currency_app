@@ -1,7 +1,9 @@
-const getAllCoins = async () => {
-  const response = await fetch('https://api.coincap.io/v2/assets#');
-  const { data } = await response.json();
-  return data;
+import axios from 'axios';
+
+const fetchData = async () => {
+  const res = await axios.get('https://api.coingecko.com/api/v3/coins/');
+
+  return res.data;
 };
 
-export default getAllCoins;
+export default fetchData;

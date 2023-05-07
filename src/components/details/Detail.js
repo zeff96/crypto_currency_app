@@ -1,76 +1,65 @@
 import PropTypes from 'prop-types';
-import { BsArrowRightCircle } from 'react-icons/bs';
 
-export default function Detail({ item }) {
+export default function Details({ detail }) {
   return (
-    <div className="mt-3">
-      <div>
-        <h2 className="text-center mb-3">Crypto Currency Data</h2>
-      </div>
-      <ul className="list-unstyled list-group mb-3">
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Rank</span>
-          <span>{item.rank}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Symbol</span>
-          <span>{item.symbol}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Name</span>
-          <span>{item.name}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Supply</span>
-          <span>{parseFloat(item.supply).toFixed(2)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>MaxSupply</span>
-          <span>{parseFloat(item.maxSupply).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>MarketCapUsd</span>
-          <span>{parseFloat(item.marketCapUsd).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>VolumeUsd24Hr</span>
-          <span>{parseFloat(item.volumeUsd24Hr).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>PriceUsd</span>
-          <span>{parseFloat(item.priceUsd).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>ChangePercent24Hr</span>
-          <span>{parseFloat(item.changePercent24Hr).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Vwap24Hr</span>
-          <span>{parseFloat(item.vwap24Hr).toFixed(4)}</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between text-white fw-bold">
-          <span>Explorer</span>
-          <a href={item.explorer} target="_blank" rel="noopener noreferrer">
-            <BsArrowRightCircle className="text-white fs-4" />
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul className="list-group">
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Id</span>
+        <span>{detail.id}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Symbol</span>
+        <span>{detail.symbol}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Name</span>
+        <span>{detail.name}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Current Price</span>
+        <span>{detail.marketData?.current_price?.usd}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Market Cap</span>
+        <span>{detail.marketData?.market_cap?.usd}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Market Cap Rank</span>
+        <span>{detail.marketData?.market_cap_rank}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Data High</span>
+        <span>{detail.marketData?.high_24?.usd}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Data Low</span>
+        <span>{detail.marketData?.low_24h?.usd}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Circulating Supply</span>
+        <span>{detail.marketData?.circulating_supply}</span>
+      </li>
+      <li className="list-group-item d-flex justify-content-between text-white fs-5">
+        <span>Total Supply</span>
+        <span>{detail.marketData?.total_supply}</span>
+      </li>
+    </ul>
   );
 }
 
-Detail.propTypes = {
-  item: PropTypes.shape({
-    rank: PropTypes.string,
+Details.propTypes = {
+  detail: PropTypes.shape({
+    id: PropTypes.string,
     name: PropTypes.string,
     symbol: PropTypes.string,
-    supply: PropTypes.string,
-    maxSupply: PropTypes.string,
-    marketCapUsd: PropTypes.string,
-    volumeUsd24Hr: PropTypes.string,
-    priceUsd: PropTypes.string,
-    changePercent24Hr: PropTypes.string,
-    vwap24Hr: PropTypes.string,
-    explorer: PropTypes.string,
+    marketData: PropTypes.shape({
+      current_price: PropTypes.string,
+      market_cap: PropTypes.string,
+      market_cap_rank: PropTypes.string,
+      high_24: PropTypes.string,
+      low_24h: PropTypes.string,
+      circulating_supply: PropTypes.string,
+      total_supply: PropTypes.string,
+    }),
   }).isRequired,
 };

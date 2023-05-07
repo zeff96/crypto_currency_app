@@ -1,51 +1,54 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
-  getCoinsAsyns,
-  selectCoins,
-  selectStatus,
+  selectDetails,
   selectError,
-} from '../../redux/coins/coinsSlice';
-import Detail from './Detail';
-import bitcoin from '../../asset/bitcoin.svg';
+  selectStatus,
+  getDetailsAsync,
+} from '../../redux/details/detailsSlice';
+import Details from './Detail';
+import Header, { Detailsnav } from '../navbar/Header';
+import logo from '../../asset/bitcoin.svg';
 
-export default function Details() {
-  const dispatch = useAppDispatch();
-
-  const coins = useAppSelector(selectCoins);
-  const error = useAppSelector(selectError);
-  const status = useAppSelector(selectStatus);
-
-  useEffect(() => {
-    dispatch(getCoinsAsyns());
-  }, [dispatch]);
-
+export default function AllDetails() {
   const { id } = useParams();
 
-  const coin = coins.find((item) => item.id === id);
+  const details = useAppSelector(selectDetails);
+  const status = useAppSelector(selectStatus);
+  const error = useAppSelector(selectError);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getDetailsAsync());
+  }, [dispatch]);
+
+  const detail = details.find((item) => item.id === id);
 
   return (
-    <div className="container" data-testid="details">
-      <div className="d-flex align-items-center">
-        <div style={{ maxWidth: '15rem' }}>
-          <img className="img-fluid" src={bitcoin} alt={bitcoin} />
+    <div className="container my-5 pt-5">
+      <Header>
+        <Detailsnav />
+      </Header>
+      <div className="mb-3 d-flex align-items-center">
+        <div>
+          <img src={logo} alt="binance-svg" style={{ width: '15rem' }} />
         </div>
-        <h2 className="fs-1 fw-bolder">
-          Crypto
-          {' '}
-          <br />
-          {' '}
-          Currency
-          {' '}
-          <br />
-          {' '}
-          Metrics
-        </h2>
+        <div>
+          <span className="text-white fs-2">
+            CRYPTO
+            <br />
+            CURRENCY
+            <br />
+            DATA
+          </span>
+        </div>
       </div>
-      {status === 'Loading' && <h2>Loading</h2>}
-      {error && <h2>{error.message}</h2>}
-      {coin && <Detail item={coin} key={coin.id} />}
+      <hr className="text-white" />
+      {status === 'loading' && <h3>Loading...</h3>}
+      {error && <h3>{error.message}</h3>}
+      {detail && <Details key={detail.id} detail={detail} />}
     </div>
   );
 }
