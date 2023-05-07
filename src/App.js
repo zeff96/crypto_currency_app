@@ -1,16 +1,15 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/navbar/Header';
-import Currencies from './components/currencies/Currencies';
-import Details from './components/details/Details';
+import AllCoins from './components/homepage/allCoins';
+import AllDetails from './components/details/allDetails';
 
 function App() {
   return (
-    <div className="my-5 p-3 z-0 text-white">
-      <Header />
+    <div className="container">
       <Routes>
-        <Route path="/" element={<Currencies />} />
-        <Route path="/details/:id" element={<Details />} />
+        <Route path="/" element={<AllCoins />} />
+        <Route path="/details/:id" element={<AllDetails />} />
       </Routes>
     </div>
   );
