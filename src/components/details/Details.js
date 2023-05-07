@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
   selectDetails,
