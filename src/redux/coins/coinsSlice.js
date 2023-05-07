@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import getAllCoins from '../../api/getData';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import fetchData from '../../api/coinsApi';
 
 const initialState = {
   coins: [],
@@ -7,11 +7,11 @@ const initialState = {
   error: null,
 };
 
-export const getCoinsAsyns = createAsyncThunk(
-  'coins/getCoinsAsyns',
+export const getCoinsAsync = createAsyncThunk(
+  'coins/getCoinsAsync',
   async () => {
-    const coins = await getAllCoins();
-    return coins.splice(0, 16);
+    const data = await fetchData();
+    return data.splice(0, 15);
   },
 );
 
@@ -20,16 +20,25 @@ const coinsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getCoinsAsyns.pending, (state) => ({
+      .addCase(getCoinsAsync.pending, (state) => ({
         ...state,
-        status: 'Loading',
+        status: 'loading',
       }))
-      .addCase(getCoinsAsyns.fulfilled, (state, action) => ({
-        ...state,
-        coins: action.payload,
-        status: 'completed',
-      }))
-      .addCase(getCoinsAsyns.rejected, (state, action) => ({
+      .addCase(getCoinsAsync.fulfilled, (state, action) => {
+        const coins = action.payload.map((coin) => {
+          const { id, name, image } = coin;
+          const { large = null } = image || {};
+          return { id, name, image: { large } };
+        });
+
+        return {
+          ...state,
+          coins,
+          status: 'completed',
+          error: null,
+        };
+      })
+      .addCase(getCoinsAsync.rejected, (state, action) => ({
         ...state,
         status: 'rejected',
         error: action.error,
@@ -40,6 +49,4 @@ const coinsSlice = createSlice({
 export const selectCoins = (state) => state.coins.coins;
 export const selectStatus = (state) => state.coins.status;
 export const selectError = (state) => state.coins.error;
-
-export const { showDetails } = coinsSlice.actions;
 export default coinsSlice.reducer;
