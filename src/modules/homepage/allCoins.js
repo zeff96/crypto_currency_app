@@ -3,14 +3,14 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
   getCoinsAsync,
   selectCoins,
-  selectError,
   selectStatus,
+  selectError,
 } from '../../redux/coins/coinsSlice';
-import Coins from './Currency';
-import Header, { Homenav } from '../navbar/Header';
+import Coins from './coins';
+import Header, { Homepagenav } from '../navbar/header';
 import logo from '../../asset/bitcoin.svg';
 
-export default function AllCoins() {
+export default function Allcoins() {
   const coins = useAppSelector(selectCoins);
   const status = useAppSelector(selectStatus);
   const error = useAppSelector(selectError);
@@ -38,7 +38,7 @@ export default function AllCoins() {
   return (
     <div className="container my-5 pt-5">
       <Header>
-        <Homenav />
+        <Homepagenav />
       </Header>
       <div className="mb-3 row justify-content-center">
         <div className="d-flex align-items-center col-md-5">

@@ -1,14 +1,15 @@
-import './App.scss';
 import { Routes, Route } from 'react-router-dom';
-import AllCoins from './components/currencies/Currencies';
-import AllDetails from './components/details/Details';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import Allcoins from './modules/homepage/allCoins';
+import Alldetails from './modules/details/allDetails';
 
 function App() {
   return (
-    <div className="my-5 p-3 z-0 text-white">
+    <div className="my-5 p-3">
       <Routes>
-        <Route path="/" element={<AllCoins />} />
-        <Route path="/details/:id" element={<AllDetails />} />
+        <Route exact path="/" element={<Allcoins />} />
+        <Route path="/details/:id" element={<Alldetails />} />
       </Routes>
     </div>
   );
