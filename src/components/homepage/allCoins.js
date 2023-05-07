@@ -7,7 +7,7 @@ import {
   selectStatus,
 } from '../../redux/coins/coinsSlice';
 import Coins from './coin';
-import Header, { Homenav } from '../navbar/header';
+import Header, { Homenav } from '../navbar/Header';
 import logo from '../../asset/bitcoin.svg';
 
 export default function AllCoins() {

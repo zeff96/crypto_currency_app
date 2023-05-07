@@ -7,8 +7,8 @@ import {
   selectStatus,
   getDetailsAsync,
 } from '../../redux/details/detailsSlice';
-import Details from './details';
-import Header, { Detailsnav } from '../navbar/header';
+import Details from './Details';
+import Header, { Detailsnav } from '../navbar/Header';
 import logo from '../../asset/bitcoin.svg';
 
 export default function AllDetails() {
