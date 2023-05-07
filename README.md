@@ -41,7 +41,7 @@ This is a website that allow users to get bitcoins from the api and allows users
 
 ## Live Demo:
 
-[Live Demo](https://crypto-fbto.onrender.com)
+[Live Demo](https://bitcoins.onrender.com/)
 
 ## Getting Started
 
