@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-
 import { BsChevronLeft } from 'react-icons/bs';
 import { MdOutlineKeyboardVoice, MdSettings } from 'react-icons/md';
+import PropTypes from 'prop-types';
 
 export default function Header({ children }) {
   return <>{children}</>;
 }
 
-export function Homenav() {
+export function Homepagenav() {
   return (
     <nav
       className="navbar navbar-expand navbar-dark fixed-top header"
@@ -41,7 +40,7 @@ export function Homenav() {
   );
 }
 
-export function Detailsnav() {
+export function Detailspagenav() {
   return (
     <nav
       className="navbar navbar-expand navbar-dark fixed-top header"

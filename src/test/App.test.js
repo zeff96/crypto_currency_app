@@ -3,8 +3,8 @@ import '@testing-library/jest-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import renderWithProviders from '../utilis/utils';
-import AllCoins from '../components/currencies/Currencies';
-import AllDetails from '../components/details/Details';
+import AllCoins from '../modules/homepage/allCoins';
+import AllDetails from '../modules/details/allDetails';
 
 const handlers = [
   rest.get('https://api.coingecko.com/api/v3/coins/', (req, res, ctx) => res(

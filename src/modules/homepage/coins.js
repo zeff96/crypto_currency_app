@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 export default function Coins({ coin }) {
   return (
