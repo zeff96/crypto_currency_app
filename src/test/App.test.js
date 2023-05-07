@@ -1,9 +1,27 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { rest, server } from './setupServer';
-import renderWithProviders from './utils/utils';
-import AllCoins from './components/homepage/allCoins';
-import AllDetails from './components/details/allDetails';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import renderWithProviders from '../utilis/utils';
+import AllCoins from '../components/currencies/Currencies';
+import AllDetails from '../components/details/Details';
+
+const handlers = [
+  rest.get('https://api.coingecko.com/api/v3/coins/', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json([
+      { id: 'bitcoin', name: 'Bitcoin', symbol: 'btc' },
+      { id: 'ethereum', name: 'Ethereum', symbol: 'eth' },
+      { id: 'tether', name: 'Tether', symbol: 'usdt' },
+    ]),
+  )),
+];
+
+const server = setupServer(...handlers);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 describe('Coins component test', () => {
   it('should showing loading status initially', async () => {
