@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="my-5 p-3">
       <Routes>
-        <Route exact path="/" element={<Allcoins />} />
+        <Route path="/" element={<Allcoins />} />
         <Route path="/details/:id" element={<Alldetails />} />
       </Routes>
     </div>
