@@ -7,7 +7,7 @@ import {
   selectStatus,
   getDetailsAsync,
 } from '../../redux/details/detailsSlice';
-import Details from './Detail';
+import Details from './Details';
 import Header, { Detailsnav } from '../navbar/Header';
 import logo from '../../asset/bitcoin.svg';
 
@@ -52,20 +52,3 @@ export default function AllDetails() {
     </div>
   );
 }
-
-Details.propTypes = {
-  detail: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    symbol: PropTypes.string,
-    marketData: PropTypes.shape({
-      current_price: PropTypes.string,
-      market_cap: PropTypes.string,
-      market_cap_rank: PropTypes.string,
-      high_24: PropTypes.string,
-      low_24h: PropTypes.string,
-      circulating_supply: PropTypes.string,
-      total_supply: PropTypes.string,
-    }),
-  }).isRequired,
-};

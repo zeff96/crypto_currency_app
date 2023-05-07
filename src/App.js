@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import AllCoins from './components/currencies/Currencies';
