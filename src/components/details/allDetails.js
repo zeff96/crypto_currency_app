@@ -38,13 +38,9 @@ export default function AllDetails() {
         <div>
           <span className="text-white fs-2">
             CRYPTO
-            {' '}
             <br />
-            {' '}
             CURRENCY
-            {' '}
             <br />
-            {' '}
             DATA
           </span>
         </div>
