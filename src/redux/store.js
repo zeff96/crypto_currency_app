@@ -1,15 +1,11 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import coinsReducer from './coins/coinsSlice';
-import detailsReducer from './details/detailsSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import apiSlice from './apiSlice/apiSlice';
 
-const rootReducer = combineReducers({
-  coins: coinsReducer,
-  details: detailsReducer,
-});
+const store = configureStore({
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware)
+})
 
-export default function setupStore(preloadedState) {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState,
-  });
-}
+export default store
