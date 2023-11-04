@@ -1,5 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import fetchData from '../../api/getData';
+import apiSlice from "../apiSlice/apiSlice";
+
+const coinsApiSlice = apiSlice.injectEndpoints({
+  endpoints: builder => ({
+    getCoins: builder.query({
+      query: () => '/'
+    })
+  })
+})
 
 const initialState = {
   coins: [],
