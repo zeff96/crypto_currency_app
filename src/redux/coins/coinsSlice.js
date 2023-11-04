@@ -1,12 +1,12 @@
-import apiSlice from "../apiSlice/apiSlice";
+import apiSlice from '../apiSlice/apiSlice';
 
 const coinsApiSlice = apiSlice.injectEndpoints({
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getCoins: builder.query({
-      query: () => '/'
-    })
-  })
-})
+      query: () => '/',
+    }),
+  }),
+});
 
 const initialState = {
   coins: [],
