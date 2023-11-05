@@ -17,31 +17,31 @@ export default function Details({ detail }) {
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Current Price</span>
-        <span>{detail.marketData?.current_price?.usd}</span>
+        <span>{detail.marketData?.currentPrice}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Market Cap</span>
-        <span>{detail.marketData?.market_cap?.usd}</span>
+        <span>{detail.marketData?.marketCap}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Market Cap Rank</span>
-        <span>{detail.marketData?.market_cap_rank}</span>
+        <span>{detail.marketData?.marketCapRank}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Data High</span>
-        <span>{detail.marketData?.high_24?.usd}</span>
+        <span>{detail.marketData?.dataHigh}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Data Low</span>
-        <span>{detail.marketData?.low_24h?.usd}</span>
+        <span>{detail.marketData?.dataLow}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Circulating Supply</span>
-        <span>{detail.marketData?.circulating_supply}</span>
+        <span>{detail.marketData?.circulatingSupply}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Total Supply</span>
-        <span>{detail.marketData?.total_supply}</span>
+        <span>{detail.marketData?.totalSupply}</span>
       </li>
     </ul>
   );
