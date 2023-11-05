@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useGetCoinsQuery } from '../../redux/coins/coinsSlice';
+import useGetCoinsQuery from '../../redux/coins/coinsSlice';
 import Coins from './coins';
 import Header, { Homepagenav } from '../navbar/header';
 import logo from '../../asset/bitcoin.svg';
