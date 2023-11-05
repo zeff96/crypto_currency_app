@@ -1,28 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import {
-  getCoinsAsync,
-  selectCoins,
-  selectStatus,
-  selectError,
-} from '../../redux/coins/coinsSlice';
+import { useGetCoinsQuery } from '../../redux/coins/coinsSlice';
 import Coins from './coins';
 import Header, { Homepagenav } from '../navbar/header';
 import logo from '../../asset/bitcoin.svg';
 
 export default function Allcoins() {
-  const coins = useAppSelector(selectCoins);
-  const status = useAppSelector(selectStatus);
-  const error = useAppSelector(selectError);
+  const {
+    data = [], isError, isLoading, isSuccess, error,
+  } = useGetCoinsQuery();
+
+  const coins = data;
+
+  console.log(coins);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCoins, setFilteredCoins] = useState(coins);
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getCoinsAsync());
-  }, [dispatch]);
 
   useEffect(() => {
     const filtered = coins.filter(
@@ -66,9 +58,9 @@ export default function Allcoins() {
         </div>
       </div>
       <hr className="text-white" />
-      {status === 'loading' && <h3>Loading...</h3>}
-      {error && <h3>{error.message}</h3>}
-      {coins && (
+      {isLoading && <h3>Loading...</h3>}
+      {isError && <h3>{error.message}</h3>}
+      {isSuccess && (
         <div className="row justify-content-center gap-2">{listCoins}</div>
       )}
     </div>
