@@ -38,3 +38,6 @@ const coinsSlice = createSlice({
       }));
   },
 });
+
+
+export const {useGetCoinsQuery} = coinsApiSlice
