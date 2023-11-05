@@ -10,7 +10,7 @@ const coinsApiSlice = apiSlice.injectEndpoints({
           name: coin?.name,
           image: coin?.image?.large,
           symbol: coin?.symbol,
-          markerData: {
+          markertData: {
             currentPrice: coin?.market_data?.current_price?.usd,
             marketCap: coin?.market_data?.market_cap?.usd,
             marketCapRank: coin?.market_data?.market_cap_rank,
