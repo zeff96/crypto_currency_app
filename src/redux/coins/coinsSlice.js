@@ -8,20 +8,6 @@ const coinsApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-const initialState = {
-  coins: [],
-  status: 'idle',
-  error: null,
-};
-
-export const getCoinsAsync = createAsyncThunk(
-  'coins/getCoinsAsync',
-  async () => {
-    const data = await fetchData();
-    return data.splice(0, 15);
-  },
-);
-
 const coinsSlice = createSlice({
   name: 'coins',
   initialState,
@@ -52,8 +38,3 @@ const coinsSlice = createSlice({
       }));
   },
 });
-
-export const selectCoins = (state) => state.coins.coins;
-export const selectStatus = (state) => state.coins.status;
-export const selectError = (state) => state.coins.error;
-export default coinsSlice.reducer;
