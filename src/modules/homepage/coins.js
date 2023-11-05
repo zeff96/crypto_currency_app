@@ -7,7 +7,7 @@ export default function Coins({ coin }) {
     <div className="col-12 col-md-4 col-lg-3 border rounded-2 p-2">
       <div className="row">
         <div className="col">
-          <img className="img-fluid" src={coin.image?.large} alt={coin.name} />
+          <img className="img-fluid" src={coin.image} alt={coin.name} />
         </div>
         <div className="d-flex flex-column align-items-end justify-content-between col">
           <NavLink to={`/details/${coin.id}`}>

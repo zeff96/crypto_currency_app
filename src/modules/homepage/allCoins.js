@@ -11,8 +11,6 @@ export default function Allcoins() {
 
   const coins = data;
 
-  console.log(coins);
-
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCoins, setFilteredCoins] = useState(coins);
 
