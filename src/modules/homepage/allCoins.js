@@ -9,17 +9,15 @@ export default function Allcoins() {
     data = [], isError, isLoading, isSuccess, error,
   } = useGetCoinsQuery();
 
-  const coins = data;
-
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCoins, setFilteredCoins] = useState(coins);
+  const [filteredCoins, setFilteredCoins] = useState(data);
 
   useEffect(() => {
-    const filtered = coins.filter(
+    const filtered = data.filter(
       (coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setFilteredCoins(filtered);
-  }, [coins, searchQuery]);
+  }, []);
 
   const listCoins = filteredCoins.map((coin) => (
     <Coins key={coin.id} coin={coin} />

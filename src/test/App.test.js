@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import renderWithProviders from '../utilis/utils';
+import renderWithProviders from '../utils/utils';
 import AllCoins from '../modules/homepage/allCoins';
 import AllDetails from '../modules/details/allDetails';
 

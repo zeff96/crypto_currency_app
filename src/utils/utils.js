@@ -3,19 +3,19 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import setupStore from '../redux/store';
+import store from '../redux/store';
 
 export default function renderWithProviders(
   ui,
   {
     preloadedState = {},
-    store = setupStore(preloadedState),
+    customStore = store,
     ...renderOptions
   } = {},
 ) {
   function Wrapper({ children }) {
     return (
-      <Provider store={store}>
+      <Provider store={customStore}>
         <BrowserRouter>{children}</BrowserRouter>
       </Provider>
     );
@@ -23,5 +23,5 @@ export default function renderWithProviders(
   Wrapper.propTypes = {
     children: PropTypes.node.isRequired,
   };
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return { store:customStore, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
