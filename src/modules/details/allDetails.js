@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import useGetCoinsQuery from '../../redux/coins/coinsSlice';
+import { useGetCoinQuery } from '../../redux/coins/coinsSlice';
 import Details from './details';
 import Header, { Detailspagenav } from '../navbar/header';
 import logo from '../../asset/bitcoin.svg';
@@ -8,10 +8,10 @@ export default function Alldetails() {
   const { id } = useParams();
 
   const {
-    data = [], isError, isLoading, isSuccess, error,
-  } = useGetCoinsQuery();
+    data = {}, isError, isLoading, isSuccess, error,
+  } = useGetCoinQuery(id);
 
-  const detail = data.find((coin) => coin?.id === id);
+  const detail = data;
 
   return (
     <div className="container my-5 pt-5">
