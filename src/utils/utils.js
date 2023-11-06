@@ -8,7 +8,6 @@ import store from '../redux/store';
 export default function renderWithProviders(
   ui,
   {
-    preloadedState = {},
     customStore = store,
     ...renderOptions
   } = {},
@@ -23,5 +22,5 @@ export default function renderWithProviders(
   Wrapper.propTypes = {
     children: PropTypes.node.isRequired,
   };
-  return { store:customStore, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return { store: customStore, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
