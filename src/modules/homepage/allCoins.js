@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import useGetCoinsQuery from '../../redux/coins/coinsSlice';
+import { useMemo, useState } from 'react';
+import { useGetCoinsQuery } from '../../redux/coins/coinsSlice';
 import Coins from './coins';
 import Header, { Homepagenav } from '../navbar/header';
 import logo from '../../asset/bitcoin.svg';
@@ -10,14 +10,10 @@ export default function Allcoins() {
   } = useGetCoinsQuery();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCoins, setFilteredCoins] = useState(data);
-
-  useEffect(() => {
-    const filtered = data.filter(
-      (coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-    setFilteredCoins(filtered);
-  }, [data, searchQuery]);
+  const filteredCoins = useMemo(
+    () => data.filter((coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase())),
+    [data, searchQuery],
+  );
 
   const listCoins = filteredCoins.map((coin) => (
     <Coins key={coin.id} coin={coin} />
@@ -55,7 +51,7 @@ export default function Allcoins() {
       </div>
       <hr className="text-white" />
       {isLoading && <h3>Loading...</h3>}
-      {isError && <h3>{error.message}</h3>}
+      {isError && <h3>{error?.data?.error}</h3>}
       {isSuccess && (
         <div className="row justify-content-center gap-2">{listCoins}</div>
       )}
