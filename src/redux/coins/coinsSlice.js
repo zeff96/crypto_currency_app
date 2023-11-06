@@ -9,22 +9,28 @@ const coinsApiSlice = apiSlice.injectEndpoints({
           id: coin?.id,
           name: coin?.name,
           image: coin?.image?.large,
-          symbol: coin?.symbol,
-          marketData: {
-            currentPrice: coin?.market_data?.current_price?.usd,
-            marketCap: coin?.market_data?.market_cap?.usd,
-            marketCapRank: coin?.market_data?.market_cap_rank,
-            dataHigh: coin?.market_data?.high_24h?.usd,
-            dataLow: coin?.market_data?.low_24h?.usd,
-            circulatingSupply: coin?.market_data?.circulating_supply,
-            totalSupply: coin?.market_data?.total_supply,
-          },
         }));
         return coins.splice(0, 15);
       },
     }),
+    getCoin: builder.query({
+      query: (id) => `/${id}`,
+      transformResponse: (data) => ({
+        id: data?.id,
+        name: data?.name,
+        image: data?.image?.large,
+        symbol: data?.symbol,
+        marketData: {
+          currentPrice: data?.market_data?.current_price?.usd,
+          marketCap: data?.market_data?.market_cap?.usd,
+          marketCapRank: data?.market_data?.market_cap_rank,
+          dataHigh: data?.market_data?.high_24h?.usd,
+          dataLow: data?.market_data?.low_24h?.usd,
+          circulatingSupply: data?.market_data?.circulating_supply,
+          totalSupply: data?.market_data?.total_supply,
+        },
+      }),
+    }),
   }),
 });
-const { useGetCoinsQuery } = coinsApiSlice;
-
-export default useGetCoinsQuery;
+export const { useGetCoinsQuery, useGetCoinQuery } = coinsApiSlice;
