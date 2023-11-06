@@ -17,7 +17,7 @@ export default function Allcoins() {
       (coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setFilteredCoins(filtered);
-  }, []);
+  }, [data, searchQuery]);
 
   const listCoins = filteredCoins.map((coin) => (
     <Coins key={coin.id} coin={coin} />
