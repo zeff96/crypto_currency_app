@@ -5,43 +5,43 @@ export default function Details({ detail }) {
     <ul className="list-group">
       <li className="list-group-item d-flex justify-content-between">
         <span>Id</span>
-        <span>{detail.id}</span>
+        <span>{detail?.id}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Symbol</span>
-        <span>{detail.symbol}</span>
+        <span>{detail?.symbol}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Name</span>
-        <span>{detail.name}</span>
+        <span>{detail?.name}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Current Price</span>
-        <span>{detail.marketData?.currentPrice}</span>
+        <span>{detail?.marketData?.currentPrice}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Market Cap</span>
-        <span>{detail.marketData?.marketCap}</span>
+        <span>{detail?.marketData?.marketCap}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Market Cap Rank</span>
-        <span>{detail.marketData?.marketCapRank}</span>
+        <span>{detail?.marketData?.marketCapRank}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Data High</span>
-        <span>{detail.marketData?.dataHigh}</span>
+        <span>{detail?.marketData?.dataHigh}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Data Low</span>
-        <span>{detail.marketData?.dataLow}</span>
+        <span>{detail?.marketData?.dataLow}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Circulating Supply</span>
-        <span>{detail.marketData?.circulatingSupply}</span>
+        <span>{detail?.marketData?.circulatingSupply}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
         <span>Total Supply</span>
-        <span>{detail.marketData?.totalSupply}</span>
+        <span>{detail?.marketData?.totalSupply}</span>
       </li>
     </ul>
   );
@@ -58,8 +58,8 @@ Details.propTypes = {
       marketCapRank: PropTypes.number,
       dataHigh: PropTypes.number,
       dataLow: PropTypes.number,
-      circulatingSupply: PropTypes.string,
-      totalSupply: PropTypes.string,
+      circulatingSupply: PropTypes.number,
+      totalSupply: PropTypes.number,
     }),
   }).isRequired,
 };
