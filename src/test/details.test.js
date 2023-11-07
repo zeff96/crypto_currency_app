@@ -1,5 +1,4 @@
 import { screen } from '@testing-library/react';
-import { useParams } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
@@ -8,7 +7,7 @@ import AllDetails from '../modules/details/allDetails';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useParams: () => ({ id: 'tether' }), // Provide a valid "id" value
+  useParams: () => ({ id: 'tether' }),
 }));
 
 const handlers = [
@@ -24,11 +23,10 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-
 describe('Details component test', () => {
   it('should show loading status initially', async () => {
     renderWithProviders(
-        <AllDetails />
+      <AllDetails />,
     );
 
     expect(screen.getByText(/loading\.\.\./i)).toBeInTheDocument();
